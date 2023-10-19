@@ -1,0 +1,98 @@
+.post{
+    width: 600px;
+    height: 400px;
+    border-radius: 0px 0px 20px 20px;
+}
+.name{
+    background-color: white;
+    color: brown;
+
+    border-radius: 20px 20px 0px 0px;
+    width: 90%;
+    padding: 10px;
+    font-size: 40px;
+}
+.postctn{
+    display: flex;
+   
+    width: 620px;
+    background-color: aliceblue;
+    border: 0.1px solid brown;
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.discription{
+   width: 100%;
+   padding-left: 20px;
+
+}
+.likedislike{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    color:black;
+    font-size: 65px;
+    width: 100%;
+}
+.comment{
+    margin: 10px;
+}
+.likeno{
+    font-size: 35px;
+}
+#commentbox{
+    height: 400px;
+    width: 400px;
+    background-color: bisque;
+    position: fixed;
+    margin: 100px;
+    display: none;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.commentmessagebox{
+    height: 350px;
+    background-color: white;
+}
+.commentbtn{
+    padding: 5px 8px;
+    font-size: 25px;
+}
+.commentname{
+    
+    padding: 3px;
+    font-size: 20px;
+    background-color: blue;
+    color: aliceblue;
+}
+
+.commentmessage{
+    padding: 3px;
+}
+
+
+@media (max-width:900px){
+    .postctn{
+        display: flex;
+       
+        width: 300px;
+        margin-left: 15px;
+        background-color: aliceblue;
+        border: 0.1px solid brown;
+        border-radius: 20px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .post{
+        width: 300px;
+        height: 200px;
+        border-radius: 0px 0px 20px 20px;
+    }
+}
+
+
+

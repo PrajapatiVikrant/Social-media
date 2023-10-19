@@ -1,0 +1,55 @@
+.postForm{
+    height: 400px;
+    width: 600px;
+    cursor: pointer;
+    display: flex;
+    background-color: rgb(238, 180, 108);
+    flex-direction: column;
+    font-size: 70px;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed rgb(172, 109, 33);
+    border-radius: 20px;
+}
+.uploadtext{
+    font-size: 18px;
+    display: inline-block;
+}
+.postformBody{
+    padding: 60px;
+    height: 72vh;
+    background-color: rgb(220, 230, 230);
+}
+.postdiscription{
+    width: 600px;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+    background-color: rgb(220, 230, 230);
+}
+
+
+@media (max-width:900px){
+    .postForm{
+        height: 400px;
+        width: 300px;
+        cursor: pointer;
+        display: flex;
+        background-color: rgb(238, 180, 108);
+        flex-direction: column;
+        font-size: 70px;
+        justify-content: center;
+        align-items: center;
+        border: 2px dashed rgb(172, 109, 33);
+        border-radius: 20px;
+    } 
+    
+    .postdiscription{
+        width: 300px;
+        border-radius: 20px;
+        outline: none;
+        border: none;
+        background-color: rgb(220, 230, 230);
+    }
+
+}

@@ -1,0 +1,72 @@
+.messagectn{
+    width: 850px;
+    height: 500px;
+   overflow: auto;
+    border: 0.1px solid black;
+    border-radius: 10px;
+}
+.messageinput{
+    width: 845px;
+}
+.selectperson{
+    background-color: rgb(92, 158, 25);
+    color: aliceblue;
+    font-size: 18px;
+    padding: 5px;
+    width: 850px;
+}
+.usermessage{
+    display: flex;
+    flex-direction: column;
+}
+.from{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+   align-items:flex-end;  
+}
+.from .msg{
+    background-color: rgb(169, 136, 201);
+    color: aliceblue;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px 18px ;
+}
+.from .email{
+   font-size: 16px;
+   font-weight: 700;
+}
+.to{
+    display: flex;
+  flex-direction: column;
+  margin: 10px;
+   align-items:flex-start;
+}
+.to .msg{
+    background-color: rgb(238, 109, 109);
+    color: aliceblue;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 5px 18px ;
+}
+
+@media (max-width:900px){
+    .messagectn{
+        width: 400px;
+    }
+    .connectionctn{
+        width: 400px;
+        overflow: auto;
+        border: 2px solid black;
+    }
+    .messageinput{
+        width: 400px;
+    }
+    .selectperson{
+        background-color: rgb(92, 158, 25);
+        color: aliceblue;
+        font-size: 18px;
+        padding: 5px;
+        width: 400px;
+    }
+}

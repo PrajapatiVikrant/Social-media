@@ -1,0 +1,50 @@
+.body{
+    background-color: rgb(231, 231, 238);
+    height: 100vh;
+}
+.lsnav{
+    display: inline-flex;
+   
+    position: relative;
+    top: 20px;
+    background-color: white;
+    border-radius: 40px;
+    font-weight: 800;
+}
+.lsnav .lsnavitem1{
+    list-style: none;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 40px;
+    padding: 14px 150px;
+
+}
+.lsnav .lsnavitem2{
+    list-style: none;
+   
+    border-radius: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 14px 145px;
+
+}
+
+@media (max-width:900px){
+    .lsnav .lsnavitem1{
+        list-style: none;
+        cursor: pointer;
+        font-size: 20px;
+        border-radius: 40px;
+        padding: 14px 65px;
+    
+    }
+    .lsnav .lsnavitem2{
+        list-style: none;
+       
+        border-radius: 40px;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 14px 60px;
+    
+    }
+}

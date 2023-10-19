@@ -1,0 +1,118 @@
+.body{
+  background-color: rgb(220, 230, 230);
+}
+.homctn{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1.8fr;
+    grid-template-rows: 90vh;
+    background-color: rgb(220, 230, 230);
+  }
+  .homectn1{
+    border-radius: 20px;
+    background-color: aliceblue;
+    margin: 20px;
+    padding:10px;
+    height: 350px;
+  }
+  .homectn2{
+   
+    overflow: auto;
+    padding: 5px;
+    margin-left: 20px;
+  }
+  .homeimage{
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 80px;
+  }
+  .username{
+    display: inline;
+  }
+  .myfollower{
+    text-align: end;
+    font-size: 15px;
+    font-weight: 800;
+    color: blueviolet;
+  }
+  .myviews{
+    text-align: end;
+    font-size: 15px;
+    font-weight: 800;
+    color: blueviolet;
+  }
+  .profilebtn{
+    border: 0.2px solid rgb(146, 146, 233);
+    padding: 6px;
+    color: rgb(146, 146, 233); ;
+  }
+ 
+  h2{
+    font-size: 15px;
+  }
+  
+  .request{
+    height: 300px;
+    background-color: aliceblue;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    overflow: auto;
+  }
+  .invited{
+    height: 300px;
+    margin-right: 40px;
+    overflow: auto;
+    background-color: #fff;
+  }
+  .requestheading{
+    padding: 5px;
+    background-color: blue;
+    font-weight: 700;
+    color: #fff;
+    font-size: 18px;
+    position:sticky;
+  }
+  .invitedheading{
+    padding: 5px;
+    background-color: red;
+    font-weight: 700;
+    color: #fff;
+    font-size: 18px;
+    position:sticky;
+  }
+  .reqctn{
+    display: flex;
+   
+    align-items: center;
+    background-color: rgb(233, 231, 218);
+    margin: 5px;
+    border-radius: 50px;
+    padding: 5px;
+  }
+  .reqtext{
+    padding: 5px;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .acceptbtn{
+    font-size: 25px;
+    color: #fff;
+    margin-left: 15px;
+    background-color: brown;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px 5px;
+  }
+
+
+
+  @media (max-width: 900px){
+
+    .homctn{
+      display: flex;
+      flex-direction: column;
+      background-color: rgb(220, 230, 230);
+    }
+
+  }

@@ -1,0 +1,61 @@
+.connectionctn{
+    display: grid;
+    grid-template-columns: 1fr 900px;
+    grid-template-rows: 90.5vh;
+}
+.setconnection{
+   
+    width: 400px;
+    border:2px solid black;
+    overflow: auto;
+}
+
+#setconnectionsmall{
+    display: none;
+}
+
+.reqctn{
+    cursor: pointer;
+}
+
+.showprofile{
+    display: flex;
+   
+
+
+}
+.selectprofile{
+    
+    
+    overflow: auto;
+  
+    
+}
+.connectionlist{
+    display: none;
+}
+
+@media (max-width: 900px){
+    .connectionctn{
+       display: flex;
+    }
+    #setconnectionsmall{
+        display: block;
+    }
+  
+
+    .setconnection{
+        display: none;
+    }
+    .showprofile{
+        display: none;
+       
+     }
+     .connectionlist{
+        display: block;
+        background-color: red;
+        color: white;
+        font-size: 20px;
+        padding: 5px;
+    }
+}
