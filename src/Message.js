@@ -61,6 +61,20 @@ const Message = ()=>{
                     )
                 })}
         </div>
+            <div className="setconnectionmsg">
+        {connections.map((elem,ind)=>{
+                    return (
+                        <a href="#writemessage">
+                           <div className="reqctn" onClick={()=>select(elem.email)}>
+                            <img className='homeimage' src={`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myimage/${elem.email}`} alt="req" />
+                            <p className='reqtext'>{elem.email}</p>
+                        
+                        </div>
+                        </a>
+                    
+                    )
+                })}
+        </div>
         <div >
             <div className="selectperson" id='writemessage'>{selectemail}</div>
          <div className="messagectn" id='messageroot'>
