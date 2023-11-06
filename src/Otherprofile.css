@@ -49,6 +49,8 @@ margin-left: 5px;
     margin-left: 350px;
 }
 @media screen and (max-width:900px){
+    .bigproct{
     display:flex;
     flex-direction:column;
+    }
 }
