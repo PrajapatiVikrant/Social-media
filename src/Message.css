@@ -56,8 +56,10 @@
 @media (max-width:900px){
     .messagectn{
         width: 400px;
-        display:none;
         
+    }
+    #msgctn{
+        display:none;
     }
     .connectionctn{
         width: 400px;
