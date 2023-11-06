@@ -112,7 +112,7 @@ const Mynetwork = ()=>{
      
     
     return (
-    
+    <center>
      <div className="connectionctn">
         <div className="setconnectionnet">
         {connections.map((elem,ind)=>{
@@ -210,6 +210,7 @@ const Mynetwork = ()=>{
       
     </div>
      </div>
+                        </center>
      
     )
 }
