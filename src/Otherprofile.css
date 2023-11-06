@@ -51,6 +51,7 @@ margin-left: 5px;
 @media (max-width:900px){
     .bigproct{
     display:flex;
+    border:2px solid black;
     flex-direction:column
     margin-left:0px
     }
