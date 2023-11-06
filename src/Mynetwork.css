@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: 1fr 900px;
     grid-template-rows: 90.5vh;
-}
+} 
 .setconnection{
    
     width: 400px;
