@@ -50,7 +50,7 @@ margin-left: 5px;
 }
 @media (max-width:900px){
     .bigproct{
-    display:none;
+    display:flex;
     border:2px solid black;
     margin-left:10px;
 
