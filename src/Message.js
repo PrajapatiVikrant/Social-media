@@ -60,7 +60,7 @@ const Message = ()=>{
                     
                     )
                 })}
-        </div>
+        </div> 
             <div className="setconnectionmsg">
         {connections.map((elem,ind)=>{
                     return (
