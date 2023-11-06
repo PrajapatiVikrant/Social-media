@@ -36,7 +36,7 @@ const Message = ()=>{
        
         }
       }
-    function getchat(email){
+    async function getchat(email){
          setselectemail(email);
         document.getElementById("setconnectionmsg").style.display = "none";
         document.getElementById("msgctn").style.display = "block";
