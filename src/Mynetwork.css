@@ -39,6 +39,9 @@
     .connectionctn{
        display: flex;
     }
+    .setconnectionnet{
+        display:none;
+    }
     #setconnectionsmall{
         display: block;
     }
