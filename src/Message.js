@@ -36,6 +36,15 @@ const Message = ()=>{
        
         }
       }
+    function getchat(email){
+         setselectemail(email);
+        document.getElementById("setconnectionmsg").style.display = "none";
+        document.getElementById("msgctn").style.display = "block";
+        const data = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/getmessage/'+localStorage.getItem('email')+'/'+email)
+        console.log(data)
+        setmessage(data.data[0].message)
+    } 
+      
       async function select(email){
         setselectemail(email);
         const data = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/getmessage/'+localStorage.getItem('email')+'/'+email)
@@ -61,11 +70,11 @@ const Message = ()=>{
                     )
                 })}
         </div> 
-            <div className="setconnectionmsg">
+            <div id="setconnectionmsg" className="setconnectionmsg">
         {connections.map((elem,ind)=>{
                     return (
                         <a href="#writemessage">
-                           <div className="reqctn" onClick={()=>select(elem.email)}>
+                           <div className="reqctn" onClick={()=>getchat(elem.email)}>
                             <img className='homeimage' src={`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myimage/${elem.email}`} alt="req" />
                             <p className='reqtext'>{elem.email}</p>
                         
@@ -75,7 +84,7 @@ const Message = ()=>{
                     )
                 })}
         </div>
-        <div >
+        <div id="msgctn" >
             <div className="selectperson" id='writemessage'>{selectemail}</div>
          <div className="messagectn" id='messageroot'>
             {
