@@ -114,7 +114,7 @@ const Mynetwork = ()=>{
     return (
     
      <div className="connectionctn">
-        <div className="setconnections">
+        <div className="setconnectionnet">
         {connections.map((elem,ind)=>{
                     return (
                         
@@ -129,7 +129,7 @@ const Mynetwork = ()=>{
 
 
 
-        <div className="setconnection" id='setconnectionsmall'>
+        <div  id='setconnectionsmall'>
         {connections.map((elem,ind)=>{
                     return (
                         
