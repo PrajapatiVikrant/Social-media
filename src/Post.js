@@ -41,7 +41,7 @@ const Post = ()=>{
       <i class="fa-solid fa-cloud-arrow-up"></i>
       <p className='uploadtext'>Upload Post</p>
       
-        <input type="file" accept='.png,jpg,jpeg' onChange={handlechange} className='post-input' hidden />
+        <input type="file" accept='.png,.jpg,.jpeg' onChange={handlechange} className='post-input' hidden />
       </form>
       </center>
     </div>
