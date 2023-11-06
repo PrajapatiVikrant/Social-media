@@ -52,7 +52,7 @@
 
 @media (max-width:900px){
     .messagectn{
-        width: 400px;
+        width: 0;
     }
     .connectionctn{
         width: 400px;
@@ -62,6 +62,11 @@
     .messageinput{
         width: 400px;
     }
+    .setconnection{
+        display:block;
+        width:400px;
+    }
+        
     .selectperson{
         background-color: rgb(92, 158, 25);
         color: aliceblue;
