@@ -102,7 +102,8 @@ const Post = ()=>{
           <h1>{profiledata.email}</h1>
           <div className="bigproct">
             <img className='image' src={`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myimage/${profiledata.email}`} alt="profileimage" />
-          <div className="profilectn">
+         <center> 
+         <div className="profilectn">
          <div className="profileitem item1">{profiledata.name}</div>
          <div className="profileitem item2">
           <div className="connetion">Connection:{profiledata.connection}</div>
@@ -112,6 +113,7 @@ const Post = ()=>{
          <div className="profileitem item4"><button className='btn'>Follow</button><button className='btn' onClick={freindrequest}>{profiledata.friendres}</button></div>
        
           </div>
+               </center>
           </div>
           
          {postvalue.map((elem,ind)=>{
