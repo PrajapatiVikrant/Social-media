@@ -45,6 +45,13 @@ const Mypost = ()=>{
     
     }
 
+
+ async function deletepost(email,postname){
+  const data = await axios.delete(`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/deletepost?email=${email}&postname=${postname}`);
+    alert(data.data);
+    window.location.reload();
+  }
+
  async function addcomment(){
   await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/addcomment?postemail='+email+'&postname='+postclicked+'&sender='+localStorage.getItem('email')+'&message='+mycomment)
   setmycomment('');
@@ -99,7 +106,7 @@ async function Comment(postname){
         return (
           
           <div className="postctn">
-            <div className="name">{name}</div>
+            <div className="name"><span>{name}</span><div className='deletepost' onClick={()=>deletepost(email,elem.name)}><i class="fa-solid fa-trash"></i></div></div>
             <div className='discription'>{elem.post}</div>
         <img className='post' src={`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showpost/${elem.name}/${email}`} alt={elem.post} />
       
