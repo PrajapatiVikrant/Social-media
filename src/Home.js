@@ -66,6 +66,7 @@ async function accept(link){
           
             </div>
             <div className="home homectn3">
+            <center>
             <div className="request">
                 <div className="requestheading">Request</div>
                 {friendreq.map((elem,ind)=>{
@@ -102,7 +103,8 @@ async function accept(link){
                    
                 })}
                
-                </div>    
+                </div> 
+              <center/>
             </div>
         </div>
         </div>
