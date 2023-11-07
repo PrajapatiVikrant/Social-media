@@ -10,7 +10,7 @@
   .homectn1{
     border-radius: 20px;
     background-color: aliceblue;
-    margin: 20px;
+    margin: 20px; 
     padding:10px;
     height: 350px;
   }
@@ -61,7 +61,7 @@
   }
   .invited{
     height: 300px;
-    margin-right: 40px;
+  
     overflow: auto;
     background-color: #fff;
   }
