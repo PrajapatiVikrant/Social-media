@@ -117,5 +117,14 @@
       flex-direction: column;
       background-color: rgb(220, 230, 230);
     }
+      .reqctn{
+    display: flex;
+   
+    align-items: center;
+    background-color: rgb(233, 231, 218);
+    margin: 5px;
+    border-radius: 50px;
+    padding:5px;
+    width:100%;
 
   }
