@@ -34,6 +34,7 @@ const Mynetwork = ()=>{
     }
     async function getprofile(link){
      
+      document.querySelector('#showprofile').style.display = 'block';
         setemail(link)
             let otherprofile = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
        
@@ -55,7 +56,8 @@ const Mynetwork = ()=>{
 
     async function getprofilesmall(link){
       document.getElementById('setconnectionsmall').style.display = 'none';
-      document.querySelector('.showprofile').style.display = 'block';
+      document.querySelector('#showprofile').style.display = 'block';
+      
       setemail(link)
           let otherprofile = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
      
@@ -174,7 +176,7 @@ const Mynetwork = ()=>{
 
        
          
-                <div className="showprofile">
+                <div className="showprofile" id="showprofile">
                 <button className='connectionlist'>prev</button>
                 <img className='image' src={`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myimage/${profiledata.email}`} alt="profileimage" />
               <div className="profilectn">
