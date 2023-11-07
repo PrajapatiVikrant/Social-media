@@ -56,7 +56,7 @@ const Mynetwork = ()=>{
 
     async function getprofilesmall(link){
       document.getElementById('setconnectionsmall').style.display = 'none';
-      document.querySelector('#showprofile').style.display = 'none';
+      document.querySelector('#showprofile').style.display = 'block';
       
       setemail(link)
           let otherprofile = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
