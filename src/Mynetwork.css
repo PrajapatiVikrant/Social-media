@@ -59,4 +59,9 @@
         font-size: 20px;
         padding: 5px;
     }
+    .reqctn{
+    cursor: pointer;
+    width:100%;
+}
+
 }
