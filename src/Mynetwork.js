@@ -15,7 +15,7 @@ const Mynetwork = ()=>{
 
 
     useEffect(()=>{
-        getdata();
+        getdata(); 
       
        
     })
