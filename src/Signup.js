@@ -9,8 +9,9 @@ function Signup(){
   let [discription,setdiscription] = useState('');
   let [password,setpassword] = useState('');
  async function signup(){
-     let data = await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/signup?name='+name+'&email='+email+'&password='+password+'&discription='+discription+'&visit='+email);
-     if(data.data === 'success'){
+    let data = await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/signup?name='+name+'&email='+email+'&password='+password+'&discription='+discription+'&visit='+email);
+    console.log(data.data)
+    if(data.data === 'success'){
       alert('Signup successfully');
      }else{
        console.log(data.data);
