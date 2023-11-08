@@ -9,7 +9,7 @@ function Signup(){
   let [discription,setdiscription] = useState('');
   let [password,setpassword] = useState('');
  async function signup(){
-     let data = await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/signup?name='+name+'&email='+email+'&password='+password+'&discription='+discription+'&visit='+email);
+     let data = await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/signup?name='+name+'&email='+email+'&password='+password+'&discription='+discription+'&visit='+email);
      if(data.data === 'success'){
       alert('Signup successfully');
      }

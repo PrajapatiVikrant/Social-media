@@ -25,7 +25,7 @@ const Me = ()=>{
   async function handlechange(e){
       const imgdata = new FormData();
       imgdata.append('userfile',e.target.files[0]);
-    await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/setimage?email='+localStorage.getItem('email'),imgdata,{headers:{
+    await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/setimage?email='+localStorage.getItem('email'),imgdata,{headers:{
         
         "Content-Type": "multipart/form-data",
        }})
@@ -36,7 +36,7 @@ const Me = ()=>{
   
     async function getdata(){
      
-        let data  =  await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myprofile',{
+        let data  =  await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/myprofile',{
       headers: {
           "mytoken":localStorage.getItem('token'),
         },
@@ -50,7 +50,7 @@ const Me = ()=>{
        setuserprofile({name:data.data.name,email:data.data.email,views:data.data.views,followers:data.data.followers,post:data.data.post,discription:data.data.discription})
       
        setmyimage(()=>{
-        return <img src={`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myimage/${localStorage.getItem('email')}`} className='image' alt='myimage' />
+        return <img src={`https://socialmedia-orpin.vercel.app/Socialmedia/myimage/${localStorage.getItem('email')}`} className='image' alt='myimage' />
       })
     }
 

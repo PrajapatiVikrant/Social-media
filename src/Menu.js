@@ -11,7 +11,7 @@ function Menu(){
   const navigate = useNavigate();
 async function handlekeydown(e){
    if(e.key === 'Enter'){
-    await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/visit?email='+localStorage.getItem('email')+'&visit='+inputvalue)
+    await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/visit?email='+localStorage.getItem('email')+'&visit='+inputvalue)
     navigate("/search")
    }
  }

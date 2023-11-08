@@ -14,7 +14,7 @@ function Login(){
    const navigate = useNavigate();
  
   async function login(){
-      let data = await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/login?email='+email+'&password='+password)
+      let data = await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/login?email='+email+'&password='+password)
       console.log(data)
       if(data.data.message === "login successfully"){
          localStorage.setItem("token", data.data.signature)

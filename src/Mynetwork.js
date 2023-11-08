@@ -23,7 +23,7 @@ const Mynetwork = ()=>{
   
      async function getdata(){
       
-          let data  =  await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showconnection',{
+          let data  =  await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/showconnection',{
         headers: {
             "mytoken":localStorage.getItem('token'),
           }
@@ -36,7 +36,7 @@ const Mynetwork = ()=>{
      
       document.querySelector('#showprofile').style.display = 'flex';
         setemail(link)
-            let otherprofile = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
+            let otherprofile = await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
        
             let tem = await otherprofile.data.post.map((elem,ind)=>{
             
@@ -59,7 +59,7 @@ const Mynetwork = ()=>{
       document.querySelector('#showprofile').style.display = 'block';
       
       setemail(link)
-          let otherprofile = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
+          let otherprofile = await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
      
           let tem = await otherprofile.data.post.map((elem,ind)=>{
           
@@ -77,16 +77,16 @@ const Mynetwork = ()=>{
     async function freindrequest(){
         let from = localStorage.getItem('email');
         let to = profiledata.email;
-        const sendrequest = await axios.put('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myrequest?from='+from+'&to='+to);
+        const sendrequest = await axios.put('https://socialmedia-orpin.vercel.app/Socialmedia/myrequest?from='+from+'&to='+to);
         if(sendrequest.data === 'connecting'){
           return sendrequest.data;
         }
       }
 
       async function addcomment(){
-        await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/addcomment?postemail='+email+'&postname='+postclicked+'&sender='+localStorage.getItem('email')+'&message='+mycomment)
+        await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/addcomment?postemail='+email+'&postname='+postclicked+'&sender='+localStorage.getItem('email')+'&message='+mycomment)
        setmycomment('');
-       let data1= await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showcomment?postemail='+email+'&postname='+postclicked); 
+       let data1= await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/showcomment?postemail='+email+'&postname='+postclicked); 
            setcommentdata(data1.data) 
      }  
 
@@ -96,7 +96,7 @@ const Mynetwork = ()=>{
           document.getElementById('commentbox').style.display = "block";
           setcommentopen(true)
             console.log(email)
-            let data= await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showcomment?postemail='+email+'&postname='+postname); 
+            let data= await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/showcomment?postemail='+email+'&postname='+postname); 
             setcommentdata(data.data)
           
          
@@ -121,7 +121,7 @@ const Mynetwork = ()=>{
                     return (
                         
                         <div className="reqctn" onClick={()=>getprofile(elem.email)}>
-                            <img className='homeimage' src={`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myimage/${elem.email}`} alt="req" />
+                            <img className='homeimage' src={`https://socialmedia-orpin.vercel.app/Socialmedia/myimage/${elem.email}`} alt="req" />
                             <p className='reqtext'>{elem.email}</p>
                         
                         </div>
@@ -136,7 +136,7 @@ const Mynetwork = ()=>{
                     return (
                         
                         <div className="reqctn" onClick={()=>getprofilesmall(elem.email)}>
-                            <img className='homeimage' src={`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myimage/${elem.email}`} alt="req" />
+                            <img className='homeimage' src={`https://socialmedia-orpin.vercel.app/Socialmedia/myimage/${elem.email}`} alt="req" />
                             <p className='reqtext'>{elem.email}</p>
                         
                         </div>
@@ -178,7 +178,7 @@ const Mynetwork = ()=>{
          
                 <div className="showprofile" id="showprofile">
                 <button className='connectionlist'>prev</button>
-                <img className='image' src={`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myimage/${profiledata.email}`} alt="profileimage" />
+                <img className='image' src={`https://socialmedia-orpin.vercel.app/Socialmedia/myimage/${profiledata.email}`} alt="profileimage" />
               <div className="profilectn">
              <div className="profileitem item1">{profiledata.name}</div>
              <div className="profileitem item2">
@@ -201,7 +201,7 @@ const Mynetwork = ()=>{
             <div className="postctn">
               <div className="name">{profiledata.name}</div>
               <div className='discription'>{elem.post}</div>
-          <img className='post' src={`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showpost/${elem.name}/${profiledata.email}`} alt={elem.post} />
+          <img className='post' src={`https://socialmedia-orpin.vercel.app/Socialmedia/showpost/${elem.name}/${profiledata.email}`} alt={elem.post} />
           <Showlike likeno = {elem.like} liked = {elem.liked} index = {ind} postemail = {profiledata.email} name = {elem.name}/>
           <input className='comment' type="submit" value={'comment'} onClick={()=>{Comment(elem.name)}} readonly />
           </div>
