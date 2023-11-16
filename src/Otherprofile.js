@@ -20,13 +20,13 @@ const Post = ()=>{
    
     async function getdata(){
         
-          let data  =  await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/showotherprofile',{
+          let data  =  await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showotherprofile',{
         headers: {
             "mytoken":localStorage.getItem('token'),
           }
         })
 
-       let otherprofile = await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/showvisitprofile/'+data.data.visit+'/'+localStorage.getItem('email'))
+       let otherprofile = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showvisitprofile/'+data.data.visit+'/'+localStorage.getItem('email'))
        setemail(data.data.visit)
         let tem = await otherprofile.data.post.map((elem,ind)=>{
         
@@ -44,9 +44,9 @@ const Post = ()=>{
 
 
     async function addcomment(){
-       await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/addcomment?postemail='+email+'&postname='+postclicked+'&sender='+localStorage.getItem('email')+'&message='+mycomment)
+       await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/addcomment?postemail='+email+'&postname='+postclicked+'&sender='+localStorage.getItem('email')+'&message='+mycomment)
       setmycomment('');
-      let data1= await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/showcomment?postemail='+email+'&postname='+postclicked); 
+      let data1= await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showcomment?postemail='+email+'&postname='+postclicked); 
           setcommentdata(data1.data) 
     }  
         
@@ -56,7 +56,7 @@ const Post = ()=>{
         document.getElementById('commentbox').style.display = "block";
         setcommentopen(true)
           console.log(email)
-          let data= await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/showcomment?postemail='+email+'&postname='+postname); 
+          let data= await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showcomment?postemail='+email+'&postname='+postname); 
           setcommentdata(data.data)
         
        
@@ -72,7 +72,7 @@ const Post = ()=>{
     async function freindrequest(){
       let from = localStorage.getItem('email');
       let to = profiledata.email;
-      const sendrequest = await axios.put('https://socialmedia-orpin.vercel.app/Socialmedia/myrequest?from='+from+'&to='+to);
+      const sendrequest = await axios.put('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myrequest?from='+from+'&to='+to);
       if(sendrequest.data === 'connecting'){
         return sendrequest.data;
       }
@@ -101,9 +101,9 @@ const Post = ()=>{
 
           <h1>{profiledata.email}</h1>
           <div className="bigproct">
-            <img className='image' src={`https://socialmedia-orpin.vercel.app/Socialmedia/myimage/${profiledata.email}`} alt="profileimage" />
-         <center> 
-         <div className="profilectn">
+            <img className='image' src={`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myimage/${profiledata.email}`} alt="profileimage" />
+          <center>
+          <div className="profilectn">
          <div className="profileitem item1">{profiledata.name}</div>
          <div className="profileitem item2">
           <div className="connetion">Connection:{profiledata.connection}</div>
@@ -113,7 +113,7 @@ const Post = ()=>{
          <div className="profileitem item4"><button className='btn'>Follow</button><button className='btn' onClick={freindrequest}>{profiledata.friendres}</button></div>
        
           </div>
-               </center>
+          </center>
           </div>
           
          {postvalue.map((elem,ind)=>{
@@ -123,7 +123,7 @@ const Post = ()=>{
             <div className="postctn">
               <div className="name">{profiledata.name}</div>
               <div className='discription'>{elem.post}</div>
-          <img className='post' src={`https://socialmedia-orpin.vercel.app/Socialmedia/showpost/${elem.name}/${profiledata.email}`} alt={elem.post} />
+          <img className='post' src={elem.name} alt={elem.post} />
           <Showlike likeno = {elem.like} liked = {elem.liked} index = {ind} postemail = {profiledata.email} name = {elem.name} />
           <input className='comment' type="submit" value={'comment'} onClick={()=>{Comment(elem.name)}} readonly />
           </div>

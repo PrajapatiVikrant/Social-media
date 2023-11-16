@@ -27,7 +27,7 @@ const Mypost = ()=>{
   
     async function getpost(){
  
-        let post  =  await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/getpost',{
+        let post  =  await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/getpost',{
       headers: {
           "mytoken":localStorage.getItem('token'),
         },
@@ -44,18 +44,16 @@ const Mypost = ()=>{
       
     
     }
-
-
- async function deletepost(email,postname){
-  const data = await axios.delete(`https://socialmedia-orpin.vercel.app/Socialmedia/deletepost?email=${email}&postname=${postname}`);
+  async function deletepost(email,postname){
+  const data = await axios.delete(`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/deletepost?email=${email}&postname=${postname}`);
     alert(data.data);
     window.location.reload();
   }
 
  async function addcomment(){
-  await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/addcomment?postemail='+email+'&postname='+postclicked+'&sender='+localStorage.getItem('email')+'&message='+mycomment)
+  await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/addcomment?postemail='+email+'&postname='+postclicked+'&sender='+localStorage.getItem('email')+'&message='+mycomment)
   setmycomment('');
-  let data1= await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/showcomment?postemail='+email+'&postname='+postclicked); 
+  let data1= await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showcomment?postemail='+email+'&postname='+postclicked); 
       setcommentdata(data1.data) 
 }  
     
@@ -65,7 +63,7 @@ async function Comment(postname){
     document.getElementById('commentbox').style.display = "block";
     setcommentopen(true)
      
-      let data= await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/showcomment?postemail='+email+'&postname='+postname); 
+      let data= await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showcomment?postemail='+email+'&postname='+postname); 
       setcommentdata(data.data)
     
    
@@ -108,7 +106,7 @@ async function Comment(postname){
           <div className="postctn">
             <div className="name"><span>{name}</span><div className='deletepost' onClick={()=>deletepost(email,elem.name)}><i class="fa-solid fa-trash"></i></div></div>
             <div className='discription'>{elem.post}</div>
-        <img className='post' src={`https://socialmedia-orpin.vercel.app/Socialmedia/showpost/${elem.name}/${email}`} alt={elem.post} />
+        <img className='post' src={elem.name} alt={elem.name} />
       
        
         <Showlike likeno = {elem.like} liked = {elem.liked} index = {ind} postemail = {email} name = {elem.name} />

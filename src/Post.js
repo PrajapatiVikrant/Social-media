@@ -1,29 +1,17 @@
 import React from 'react'
 import axios from 'axios'
-import { useEffect } from 'react'
 import './Post.css'
 import { useState } from 'react'
 const Post = ()=>{
-    useEffect(()=>{
-        getdata();
-    },[])
+
     const [discription,setdiscription] = useState();
-    async function getdata(){
-        console.log(localStorage.getItem('token'))
-          let data  =  await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/uploadpost',{
-        headers: {
-            "mytoken":localStorage.getItem('token'),
-          }
-        })
-        console.log(data)
-        
-       
-    }
+    
     function handlechange(e){
       const imgdata = new FormData();
       imgdata.append('Post',e.target.files[0]);
-       axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/userpost?discription='+discription+'&email='+localStorage.getItem('email'),imgdata,{headers:{
-        "Content-Type": "multipart/form-data",
+       axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/userpost?discription='+discription+'&email='+localStorage.getItem('email'),imgdata,{headers:{
+        "mytoken":localStorage.getItem('token'),
+       "Content-Type": "multipart/form-data",
        }}).then(res=>{
          
         
