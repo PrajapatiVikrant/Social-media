@@ -3,15 +3,17 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Showlike from './Showpost'
 import './Mynetwork.css'
+import Myimage from './Myimage';
 const Mynetwork = ()=>{
   const [connections,setconnections] = useState([]);
   const [profiledata,setprofiledata] = useState({visit:'processing'});
   const [postvalue,setpostvalue] = useState([]);
   const [email, setemail] = useState('');
-  let  [commentopen,setcommentopen] = useState(false)
-  let [commentdata,setcommentdata] = useState([]);
-  let [mycomment,setmycomment] = useState('')
-  let [postclicked,setpostclicked] = useState('');
+  const  [commentopen,setcommentopen] = useState(false)
+  const [commentdata,setcommentdata] = useState([]);
+  const [mycomment,setmycomment] = useState('')
+  const [postclicked,setpostclicked] = useState('');
+ 
 
 
     useEffect(()=>{
@@ -23,20 +25,23 @@ const Mynetwork = ()=>{
   
      async function getdata(){
       
-          let data  =  await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/showconnection',{
+          let data  =  await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showconnection',{
         headers: {
             "mytoken":localStorage.getItem('token'),
           }
         })
       
         setconnections(data.data.connected)
+       
+        
+        
       
     }
     async function getprofile(link){
      
       document.querySelector('#showprofile').style.display = 'flex';
         setemail(link)
-            let otherprofile = await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
+            let otherprofile = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
        
             let tem = await otherprofile.data.post.map((elem,ind)=>{
             
@@ -44,7 +49,7 @@ const Mynetwork = ()=>{
             })
            
             setpostvalue(tem)
-            setprofiledata({name:otherprofile.data.name,discription:otherprofile.data.discription,followers:otherprofile.data.followers,connection:otherprofile.data.connection,email:otherprofile.data.email,friendres:otherprofile.data.connectionRes})
+            setprofiledata({name:otherprofile.data.name,discription:otherprofile.data.discription,followers:otherprofile.data.followers,connection:otherprofile.data.connection,email:otherprofile.data.email,friendres:otherprofile.data.connectionRes,url:otherprofile.data.url})
          
       
        
@@ -59,7 +64,7 @@ const Mynetwork = ()=>{
       document.querySelector('#showprofile').style.display = 'block';
       
       setemail(link)
-          let otherprofile = await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
+          let otherprofile = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
      
           let tem = await otherprofile.data.post.map((elem,ind)=>{
           
@@ -67,7 +72,7 @@ const Mynetwork = ()=>{
           })
          
           setpostvalue(tem)
-          setprofiledata({name:otherprofile.data.name,discription:otherprofile.data.discription,followers:otherprofile.data.followers,connection:otherprofile.data.connection,email:otherprofile.data.email,friendres:otherprofile.data.connectionRes})
+          setprofiledata({name:otherprofile.data.name,discription:otherprofile.data.discription,followers:otherprofile.data.followers,connection:otherprofile.data.connection,email:otherprofile.data.email,friendres:otherprofile.data.connectionRes,url:otherprofile.data.url})
        
   }
 
@@ -77,16 +82,16 @@ const Mynetwork = ()=>{
     async function freindrequest(){
         let from = localStorage.getItem('email');
         let to = profiledata.email;
-        const sendrequest = await axios.put('https://socialmedia-orpin.vercel.app/Socialmedia/myrequest?from='+from+'&to='+to);
+        const sendrequest = await axios.put('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myrequest?from='+from+'&to='+to);
         if(sendrequest.data === 'connecting'){
           return sendrequest.data;
         }
       }
 
       async function addcomment(){
-        await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/addcomment?postemail='+email+'&postname='+postclicked+'&sender='+localStorage.getItem('email')+'&message='+mycomment)
+        await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/addcomment?postemail='+email+'&postname='+postclicked+'&sender='+localStorage.getItem('email')+'&message='+mycomment)
        setmycomment('');
-       let data1= await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/showcomment?postemail='+email+'&postname='+postclicked); 
+       let data1= await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showcomment?postemail='+email+'&postname='+postclicked); 
            setcommentdata(data1.data) 
      }  
 
@@ -96,7 +101,7 @@ const Mynetwork = ()=>{
           document.getElementById('commentbox').style.display = "block";
           setcommentopen(true)
             console.log(email)
-            let data= await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/showcomment?postemail='+email+'&postname='+postname); 
+            let data= await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showcomment?postemail='+email+'&postname='+postname); 
             setcommentdata(data.data)
           
          
@@ -117,11 +122,12 @@ const Mynetwork = ()=>{
     <center>
      <div className="connectionctn">
         <div className="setconnectionnet">
+        
         {connections.map((elem,ind)=>{
                     return (
                         
                         <div className="reqctn" onClick={()=>getprofile(elem.email)}>
-                            <img className='homeimage' src={`https://socialmedia-orpin.vercel.app/Socialmedia/myimage/${elem.email}`} alt="req" />
+                             <Myimage email = {elem.email}/>
                             <p className='reqtext'>{elem.email}</p>
                         
                         </div>
@@ -136,7 +142,7 @@ const Mynetwork = ()=>{
                     return (
                         
                         <div className="reqctn" onClick={()=>getprofilesmall(elem.email)}>
-                            <img className='homeimage' src={`https://socialmedia-orpin.vercel.app/Socialmedia/myimage/${elem.email}`} alt="req" />
+                            <Myimage email = {elem.email}/>
                             <p className='reqtext'>{elem.email}</p>
                         
                         </div>
@@ -178,7 +184,7 @@ const Mynetwork = ()=>{
          
                 <div className="showprofile" id="showprofile">
                 <button className='connectionlist'>prev</button>
-                <img className='image' src={`https://socialmedia-orpin.vercel.app/Socialmedia/myimage/${profiledata.email}`} alt="profileimage" />
+                <img className='image' src={profiledata.url} alt="profileimage" />
               <div className="profilectn">
              <div className="profileitem item1">{profiledata.name}</div>
              <div className="profileitem item2">
@@ -201,7 +207,7 @@ const Mynetwork = ()=>{
             <div className="postctn">
               <div className="name">{profiledata.name}</div>
               <div className='discription'>{elem.post}</div>
-          <img className='post' src={`https://socialmedia-orpin.vercel.app/Socialmedia/showpost/${elem.name}/${profiledata.email}`} alt={elem.post} />
+          <img className='post' src={elem.name} alt={elem.post} />
           <Showlike likeno = {elem.like} liked = {elem.liked} index = {ind} postemail = {profiledata.email} name = {elem.name}/>
           <input className='comment' type="submit" value={'comment'} onClick={()=>{Comment(elem.name)}} readonly />
           </div>
@@ -212,7 +218,8 @@ const Mynetwork = ()=>{
       
     </div>
      </div>
-                        </center>
+  
+      </center>
      
     )
 }

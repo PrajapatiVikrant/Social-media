@@ -34,7 +34,7 @@ const Post = ()=>{
         })
        
         setpostvalue(tem)
-        setprofiledata({name:otherprofile.data.name,discription:otherprofile.data.discription,followers:otherprofile.data.followers,connection:otherprofile.data.connection,email:otherprofile.data.email,friendres:otherprofile.data.connectionRes})
+        setprofiledata({name:otherprofile.data.name,discription:otherprofile.data.discription,followers:otherprofile.data.followers,connection:otherprofile.data.connection,email:otherprofile.data.email,friendres:otherprofile.data.connectionRes,url:otherprofile.data.url})
       
     
    
@@ -101,7 +101,7 @@ const Post = ()=>{
 
           <h1>{profiledata.email}</h1>
           <div className="bigproct">
-            <img className='image' src={`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myimage/${profiledata.email}`} alt="profileimage" />
+            <img className='image' src={profiledata.url} alt="profileimage" />
           <center>
           <div className="profilectn">
          <div className="profileitem item1">{profiledata.name}</div>

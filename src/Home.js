@@ -4,6 +4,7 @@ import {useState} from 'react';
 import axios from 'axios';
 import Mypost from './Allpost'
 import './Home.css'
+import Myimage from './Myimage';
 const Home = ()=>{
     useEffect(()=>{
         getdata();
@@ -14,7 +15,7 @@ const Home = ()=>{
     let [friendinvite,setfriendinvite] = useState([]);
     async function getdata(){
    
-      let data  =  await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia',{
+      let data  =  await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia',{
     headers: {
         "mytoken":localStorage.getItem('token'),
       },
@@ -22,9 +23,9 @@ const Home = ()=>{
     
     setfriendreq(data.data.request);
     setfriendinvite(data.data.invited)
-    setuserprofile({name:data.data.name,views:data.data.views,followers:data.data.followers})
+    setuserprofile({name:data.data.name,views:data.data.views,followers:data.data.followers,url:data.data.url})
     setmyimage(()=>{
-        return <img className='homeimage' src={`https://socialmedia-orpin.vercel.app/Socialmedia/myimage/${data.data.email}`} alt="profileimage" />
+        return <img className='homeimage' src={data.data.url} alt="profileimage" />
    })
 }
 async function accept(link){
@@ -34,7 +35,7 @@ async function accept(link){
         return elem !== link;
     });
     console.log(updatedfriendreq)
-    const create = await axios.post(`https://socialmedia-orpin.vercel.app/Socialmedia/ceateconnection?link=${link}&from=${localStorage.getItem('email')}&freindreq=${updatedfriendreq}`)
+    const create = await axios.post(`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/ceateconnection?link=${link}&from=${localStorage.getItem('email')}&freindreq=${updatedfriendreq}`)
     alert(create.data);
 }
 
@@ -73,7 +74,8 @@ async function accept(link){
                     if(elem !== ''){
                         return (
                             <div className="reqctn">
-                                <img className='homeimage' src={`https://socialmedia-orpin.vercel.app/Socialmedia/myimage/${elem}`} alt="req" />
+                               
+                                <Myimage email = {elem}/>
                                 <p className='reqtext'>{elem}</p>
                                 <button className="acceptbtn" onClick={()=>accept(elem)}>Accept</button>
                             </div>
@@ -92,7 +94,7 @@ async function accept(link){
                     if(elem !== ""){
                         return (
                             <div className="reqctn">
-                                <img className='homeimage' src={`https://socialmedia-orpin.vercel.app/Socialmedia/myimage/${elem}`} alt="req" />
+                                <Myimage email = {elem}/>
                                 <p className='reqtext'>{elem}</p>
                                 
                             </div>

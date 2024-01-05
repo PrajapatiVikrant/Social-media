@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Mynetwork.css'
 import './Message.css'
+import Myimage from './Myimage';
 const Message = ()=>{
     useEffect(()=>{
         getdata();
@@ -16,21 +17,22 @@ const Message = ()=>{
    
      async function getdata(){
         
-          let data  =  await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/showconnection',{
+          let data  =  await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showconnection',{
         headers: {
             "mytoken":localStorage.getItem('token'),
           }
         })
-        const data1 = await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/getmessage/'+localStorage.getItem('email')+'/'+selectemail)
+        const data1 = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/getmessage/'+localStorage.getItem('email')+'/'+selectemail)
+        console.log(data1)
         setconnections(data.data.connected)
-        setmessage(data1.data[0].message)
+        // setmessage(data1.data[0].message)
     }
     async function handlekeydown(e){
         if(e.key === 'Enter'){
-        await axios.post('https://socialmedia-orpin.vercel.app/Socialmedia/sendmessage?from='+localStorage.getItem('email')+'&to='+selectemail+'&message='+inputvalue)
+        await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/sendmessage?from='+localStorage.getItem('email')+'&to='+selectemail+'&message='+inputvalue)
 
-         const data1 = await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/getmessage/'+localStorage.getItem('email')+'/'+selectemail)
-     
+         const data1 = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/getmessage/'+localStorage.getItem('email')+'/'+selectemail)
+         console.log(data1)
          setmessage(data1.data[0].message)
          setinputvalue('');
        
@@ -40,14 +42,14 @@ const Message = ()=>{
          setselectemail(email);
         document.getElementById("setconnectionmsg").style.display = "none";
         document.getElementById("msgctn").style.display = "block";
-        const data = await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/getmessage/'+localStorage.getItem('email')+'/'+email)
+        const data = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/getmessage/'+localStorage.getItem('email')+'/'+email)
         console.log(data)
         setmessage(data.data[0].message)
     } 
       
       async function select(email){
         setselectemail(email);
-        const data = await axios.get('https://socialmedia-orpin.vercel.app/Socialmedia/getmessage/'+localStorage.getItem('email')+'/'+email)
+        const data = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/getmessage/'+localStorage.getItem('email')+'/'+email)
         console.log(data)
         setmessage(data.data[0].message)
        
@@ -61,7 +63,7 @@ const Message = ()=>{
                     return (
                         <a href="#writemessage">
                            <div className="reqctn" onClick={()=>select(elem.email)}>
-                            <img className='homeimage' src={`https://socialmedia-orpin.vercel.app/Socialmedia/myimage/${elem.email}`} alt="req" />
+                           <Myimage email = {elem.email}/>
                             <p className='reqtext'>{elem.email}</p>
                         
                         </div>
@@ -75,7 +77,7 @@ const Message = ()=>{
                     return (
                         <a href="#writemessage">
                            <div className="reqctn" onClick={()=>getchat(elem.email)}>
-                            <img className='homeimage' src={`https://socialmedia-orpin.vercel.app/Socialmedia/myimage/${elem.email}`} alt="req" />
+                           <Myimage email = {elem.email}/>
                             <p className='reqtext'>{elem.email}</p>
                         
                         </div>
