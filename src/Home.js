@@ -15,7 +15,7 @@ const Home = ()=>{
     let [friendinvite,setfriendinvite] = useState([]);
     async function getdata(){
    
-      let data  =  await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia',{
+      let data  =  await axios.get('https://socialmedia-vikrant.vercel.app/Socialmedia',{
     headers: {
         "mytoken":localStorage.getItem('token'),
       },
@@ -35,7 +35,7 @@ async function accept(link){
         return elem !== link;
     });
     console.log(updatedfriendreq)
-    const create = await axios.post(`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/ceateconnection?link=${link}&from=${localStorage.getItem('email')}&freindreq=${updatedfriendreq}`)
+    const create = await axios.post(`https://socialmedia-vikrant.vercel.app/Socialmedia/ceateconnection?link=${link}&from=${localStorage.getItem('email')}&freindreq=${updatedfriendreq}`)
     alert(create.data);
 }
 

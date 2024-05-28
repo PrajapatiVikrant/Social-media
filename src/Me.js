@@ -26,7 +26,7 @@ const Me = () => {
     const imgdata = new FormData();
     imgdata.append("userfile", e.target.files[0]);
     await axios.post(
-      "https://black-chef-tktuc.pwskills.app:4000/Socialmedia/setimage?email=" +
+      "https://socialmedia-vikrant.vercel.app/Socialmedia/setimage?email=" +
         localStorage.getItem("email"),
       imgdata,
       {
@@ -41,7 +41,7 @@ const Me = () => {
 
   async function getdata() {
     let data = await axios.get(
-      "https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myprofile",
+      "https://socialmedia-vikrant.vercel.app/Socialmedia/myprofile",
       {
         headers: {
           mytoken: localStorage.getItem("token"),

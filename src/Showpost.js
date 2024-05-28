@@ -5,7 +5,7 @@ function Showlike(props){
     const [currentlike,setcurrentlike] = useState(props.likeno)
     async function like(ind,postname){
         if(document.getElementById(ind).style.color === 'red'){
-          let Notlike  =  await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/decreaselike?postemail='+props.postemail+'&email='+localStorage.getItem('email')+'&postname='+postname)
+          let Notlike  =  await axios.post('https://socialmedia-vikrant.vercel.app/Socialmedia/decreaselike?postemail='+props.postemail+'&email='+localStorage.getItem('email')+'&postname='+postname)
           console.log(Notlike)
         
           document.getElementById(ind).style.color = 'black'
@@ -14,7 +14,7 @@ function Showlike(props){
           })
          
         }else{
-    let like  =  await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/increaselike?postemail='+props.postemail+'&email='+localStorage.getItem('email')+'&postname='+postname)         
+    let like  =  await axios.post('https://socialmedia-vikrant.vercel.app/Socialmedia/increaselike?postemail='+props.postemail+'&email='+localStorage.getItem('email')+'&postname='+postname)         
     console.log(like)
   
     document.getElementById(ind).style.color = 'red'

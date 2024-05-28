@@ -7,7 +7,7 @@ function Myimage(props){
      imageurl();
     })
    async function imageurl(){
-        const data = await axios.get(`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myimage/${props.email}`);
+        const data = await axios.get(`https://socialmedia-vikrant.vercel.app/Socialmedia/myimage/${props.email}`);
         setconnectionimg(data.data);
     } 
     return (

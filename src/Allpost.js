@@ -27,7 +27,7 @@ const Mypost = ()=>{
   
     async function getpost(){
  
-        let post  =  await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/getpost',{
+        let post  =  await axios.get('https://socialmedia-vikrant.vercel.app/Socialmedia/getpost',{
       headers: {
           "mytoken":localStorage.getItem('token'),
         },
@@ -45,15 +45,15 @@ const Mypost = ()=>{
     
     }
   async function deletepost(email,postname){
-  const data = await axios.delete(`https://black-chef-tktuc.pwskills.app:4000/Socialmedia/deletepost?email=${email}&postname=${postname}`);
+  const data = await axios.delete(`https://socialmedia-vikrant.vercel.app/Socialmedia/deletepost?email=${email}&postname=${postname}`);
     alert(data.data);
     window.location.reload();
   }
 
  async function addcomment(){
-  await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/addcomment?postemail='+email+'&postname='+postclicked+'&sender='+localStorage.getItem('email')+'&message='+mycomment)
+  await axios.post('https://socialmedia-vikrant.vercel.app/Socialmedia/addcomment?postemail='+email+'&postname='+postclicked+'&sender='+localStorage.getItem('email')+'&message='+mycomment)
   setmycomment('');
-  let data1= await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showcomment?postemail='+email+'&postname='+postclicked); 
+  let data1= await axios.post('https://socialmedia-vikrant.vercel.app/Socialmedia/showcomment?postemail='+email+'&postname='+postclicked); 
       setcommentdata(data1.data) 
 }  
     
@@ -63,7 +63,7 @@ async function Comment(postname){
     document.getElementById('commentbox').style.display = "block";
     setcommentopen(true)
      
-      let data= await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showcomment?postemail='+email+'&postname='+postname); 
+      let data= await axios.post('https://socialmedia-vikrant.vercel.app/Socialmedia/showcomment?postemail='+email+'&postname='+postname); 
       setcommentdata(data.data)
     
    

@@ -9,7 +9,7 @@ const Post = ()=>{
     function handlechange(e){
       const imgdata = new FormData();
       imgdata.append('Post',e.target.files[0]);
-       axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/userpost?discription='+discription+'&email='+localStorage.getItem('email'),imgdata,{headers:{
+       axios.post('https://socialmedia-vikrant.vercel.app/Socialmedia/userpost?discription='+discription+'&email='+localStorage.getItem('email'),imgdata,{headers:{
         "mytoken":localStorage.getItem('token'),
        "Content-Type": "multipart/form-data",
        }}).then(res=>{

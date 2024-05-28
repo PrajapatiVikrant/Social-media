@@ -25,7 +25,7 @@ const Mynetwork = ()=>{
   
      async function getdata(){
       
-          let data  =  await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showconnection',{
+          let data  =  await axios.get('https://socialmedia-vikrant.vercel.app/Socialmedia/showconnection',{
         headers: {
             "mytoken":localStorage.getItem('token'),
           }
@@ -41,7 +41,7 @@ const Mynetwork = ()=>{
      
       document.querySelector('#showprofile').style.display = 'flex';
         setemail(link)
-            let otherprofile = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
+            let otherprofile = await axios.get('https://socialmedia-vikrant.vercel.app/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
        
             let tem = await otherprofile.data.post.map((elem,ind)=>{
             
@@ -64,7 +64,7 @@ const Mynetwork = ()=>{
       document.querySelector('#showprofile').style.display = 'block';
       
       setemail(link)
-          let otherprofile = await axios.get('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
+          let otherprofile = await axios.get('https://socialmedia-vikrant.vercel.app/Socialmedia/showvisitprofile/'+link+'/'+localStorage.getItem('email'))
      
           let tem = await otherprofile.data.post.map((elem,ind)=>{
           
@@ -82,16 +82,16 @@ const Mynetwork = ()=>{
     async function freindrequest(){
         let from = localStorage.getItem('email');
         let to = profiledata.email;
-        const sendrequest = await axios.put('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/myrequest?from='+from+'&to='+to);
+        const sendrequest = await axios.put('https://socialmedia-vikrant.vercel.app/Socialmedia/myrequest?from='+from+'&to='+to);
         if(sendrequest.data === 'connecting'){
           return sendrequest.data;
         }
       }
 
       async function addcomment(){
-        await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/addcomment?postemail='+email+'&postname='+postclicked+'&sender='+localStorage.getItem('email')+'&message='+mycomment)
+        await axios.post('https://socialmedia-vikrant.vercel.app/Socialmedia/addcomment?postemail='+email+'&postname='+postclicked+'&sender='+localStorage.getItem('email')+'&message='+mycomment)
        setmycomment('');
-       let data1= await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showcomment?postemail='+email+'&postname='+postclicked); 
+       let data1= await axios.post('https://socialmedia-vikrant.vercel.app/Socialmedia/showcomment?postemail='+email+'&postname='+postclicked); 
            setcommentdata(data1.data) 
      }  
 
@@ -101,7 +101,7 @@ const Mynetwork = ()=>{
           document.getElementById('commentbox').style.display = "block";
           setcommentopen(true)
             console.log(email)
-            let data= await axios.post('https://black-chef-tktuc.pwskills.app:4000/Socialmedia/showcomment?postemail='+email+'&postname='+postname); 
+            let data= await axios.post('https://socialmedia-vikrant.vercel.app/Socialmedia/showcomment?postemail='+email+'&postname='+postname); 
             setcommentdata(data.data)
           
          
