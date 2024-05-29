@@ -13,11 +13,11 @@ const Post = ()=>{
         "mytoken":localStorage.getItem('token'),
        "Content-Type": "multipart/form-data",
        }}).then(res=>{
-         
-        
-         return 1;
+            console.log(res.data);
+           alert(res.data.message)
+       
        })
-        alert("post uploaded")
+     
  
     }
     return (
