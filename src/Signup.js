@@ -14,7 +14,7 @@ function Signup(){
     if(data.data === 'success'){
       alert('Signup successfully');
      }else{
-       console.log(data.data);
+      alert(data.data)
      }
      
      setname('');
